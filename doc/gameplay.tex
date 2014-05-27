@@ -1,0 +1,31 @@
+La fonction principale du moteur de jeu est la vérification d'une grille résolue. En effet le moteur graphique gère la jouablilité d'un coup, ce qui enlève des possibilités de coups et réduit la complexité de la vérification. \\
+
+	Par exemple, une grille où des sommets colorés non primaires non relié à des sommets primaires n'est pas une grille que nous pouvons obtenir avec notre moteur graphique. \\
+
+L'algorithme fonctionne de la façon suivante : \\
+\begin{algorithm}[H]
+ \KwData{Graphe représentant la grille}
+ \KwResult{Booléen Vrai si la grille est bien remplie, Faux sinon}
+ 
+ \While{Toutes les couleurs n'ont pas été testées}{
+  Choisir nouvelle couleur\;
+  Chercher sommet primaire correspondant\;
+  Stocker l'indice de ce sommet\;
+  	\While{Sommet courant n'est pas primaire de clé différente de celle stockée}{
+		\eIf{Sommet courant est primaire de même clé}{
+				retourner Faux\;
+		}	
+		{
+				Passer au sommet voisin\;
+		}
+
+	}
+		
+  retourner Vrai\;
+}
+\caption{Vérification de grille}
+\end{algorithm}
+
+	Dans notre implémentation, le degré de chaque sommet est limité à deux. Lorsque deux sommets sont adjacents sur la grille, de la même couleur mais non liés, le parcours se fera correctement.\\
+    
+    De plus, chaque sommet coloré étant lié à un sommet primaire, les seuls cas où l'algorithme retournera faux sont lorsque la grille n'est pas complétement remplie, ou lorsque qu'un chemin n'atteint pas un sommet primaire distinct. Nos listes d'adjacences se remplissent en tête, lorsqu'un sommet est au bout d'un chemin, il n'a qu'un seul voisin. En fait, l'algorithme retournera en arrière et parcourera le même chemin une seconde fois. Il se stoppera en arrivant sur un sommet primaire de même clé que celui de départ.

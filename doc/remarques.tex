@@ -1,0 +1,14 @@
+\chapter{Remarques et améliorations possibles}
+
+\section*{Gestion des ponts}
+
+L'idée qui peut être implémentée pour la résolution des grilles avec des ponts serait d'ignorer l'occupation de ces cases.
+
+En effet, avant d'avancer dans une case, on vérifie que la case n'est pas déjà occupée. Comme il n'est possible d'accéder qu'une fois aux cases qui l'entourent, il n'est possible d'accéder que deux fois à la case pont. (Elle est entourée de quatre cases.)
+
+Il suffit donc d'ignorer l'occupation d'une case pont car on ne rencontrera jamais la situation de troisième passage de la case.
+
+\section*{Amélioration de la complexité de la résolution}
+Il pourrait être intéressant de trouver une moyen d'améliorer l'algorithme de résolution afin d'éviter qu'il ne fasse un trop grand nombre de calculs.
+
+Cependant, étant donnée la nature de cet algorithme, son optimisation ne nous a pas semblée rentable en terme de temps passé pour éviter une quantité de calculs dont on ne sait si elle serait significative.

@@ -1,0 +1,77 @@
+
+###### Graphs ######
+
+A graph will be represented by a list described below:
+
+G = (L1,L2,...,LN)
+
+Where : 
+   ---> Li = ((i color is_prime) l)
+   ---> i represents the index of node in the graphe, practically for a grid with size 5*5, nodes will be indexed as following:
+
+   	  	     	 ---------------------
+			 | 0 | 1 | 2 | 3 | 4 |  
+			 |--------------------
+			 | 5 | 6 | 7 | 8 | 9 |
+			 |--------------------
+			 |10 |11 |12 |13 |14 |
+			 |--------------------
+			 |15 |16 |17 |18 |19 |
+			 |--------------------
+			 |20 |21 |22 |23 |24 |
+			 ---------------------		      
+   ---> color represents the color of a node. practically if 5 colors are needed, integrs from 1 to 5 will be used to distinguish colors. A node with color 0 is a node tha has no color
+   ---> is_prime is a boolean variable. is_prime = 1 if the node was initially colored before the beginning of the game.
+   ---> l is the adjacent list of node with index i. A node n belongs to l if it has the same color as i and is accecible from i. In the figure above 2 and 3 are accecible from 1, while 7 and 3 aren't. 
+-------
+Example : The grid below will be represented as following:
+-------
+
+G=(
+  ((0 0 nil) ())
+  ((1 2 t) ())
+  ((2 0 nil) ())
+  ((3 1 t) ())
+  ((4 0 nil) ())
+  ((5 1 t) ())
+  ((6 0 nil) ())
+  ((7 3 t) ())
+  ((8 2 t) ())
+  ((9 0 nil) ())
+  ((10 0 nil) ())
+  ((11 0 nil) ())
+  ((12 3 t) ())
+  ((13 0 nil) ())
+  ((14 4 t) ())
+  ((15 4 t) ())
+)
+
+
+
+
+In the grid g means green(index 1), b means blue(index 2), r means red(index 3), and y means yellow(index 4).
+
+       	      	    	 -----------------
+			 |   | b |   | g |  
+			 |----------------
+			 |   | g |   | r |
+			 |----------------
+			 | b |   |   |   |
+			 |----------------
+			 | r |   | y | y |
+			 |----------------
+			 			
+
+
+######## Moves #######
+
+A move is a list where the first element is the integer corrsponding to the color the player wants to fill, and the second element is a list.
+
+The size of this list is up to the player.
+
+The elements of this list are the nodes the player wants to color to reach the next primary node.
+
+This list has to begin from a primary node, and, in order to confirm the move, must contain the nodes in the right order.
+
+
+     	     	(COLOR (NODE1 , NODE 2 ......))

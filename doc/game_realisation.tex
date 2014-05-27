@@ -1,0 +1,70 @@
+\chapter{Réalisation du Programme}
+\section{Structure des données}
+\subsection{Structure grille}
+
+La grille fournie en entrée est un fichier texte contenant les dimensions de la grille ainsi qu'une matrice symbolisant la grille tel que:
+\begin{itemize}
+	\item Un \# signifie une case vide.
+    \item Un entier de signifie une case colorée primaire.
+    \item Un + signifie un pont.
+\end{itemize}
+
+\begin{verbbox}
+4 4
+#1#3
+#3#2
+1#+#
+2#44
+\end{verbbox}
+\begin{figure}[ht]
+	\centering
+	\theverbbox
+	\caption{Exemple de grille $4\times 4$}
+	\label{fig:ex_grille}
+\end{figure}
+
+Pour stocker les informations de ce fichier, nous avons décidé d'utiliser une liste de $n$ sous-liste où $n$ est le nombre de cases de la grille.
+
+Ces sous-listes contiennent un quadruplet et une liste d'adjacence.\\
+
+Le quadruplet contient:
+\begin{itemize}
+	\item Un entier correspondant au numéro de la case.
+    \item Un entier correspondant à la couleur de la case.
+    \item Un entier correspondant à la couleur du pont ou "nil" si la case n'est pas un pont.
+    \item Un booléen indiquant si la case est primaire.
+\end{itemize}
+
+La liste d'adjacence contient la liste des cases adjacentes à la case dont il est question.\\
+
+Cette transformation des données est effectuée par une fonction de parcours. Elle parcourt la structure et construit de manière récursive notre structure de données. 
+
+\subsection{Structure de remplissage}
+
+Nous avons implémenté une deuxième structure afin de faciliter l'affichage et la validation de la grille dans l'interface graphique.
+
+Cette structure est une liste de $m$ sous-listes où $m$ est le nombre de couleurs de la grille.
+
+Chaque sous-liste contient:
+\begin{itemize}
+	\item Un entier correspondant à la couleur du chemin décrit.
+    \item Des couples d'entier correspondant aux coordonnées d'une case.
+\end{itemize}
+
+Les sous-listes représentent les chemins de chacune des couleurs.
+
+Le premier couples de coordonnées correspont à une case primaire. Les couples suivants correspondent au chemin tracé de la couleur.\\
+
+\section{Mise en oeuvre de l'algorithme de résolution}
+
+\subsection{Tests et complexité}
+
+La résolution fonctionne pour des grilles de toute les tailles. Cependant certaines configurations de grilles mettent plus de temps que les autres:\\
+\begin{itemize}
+	\item Dans le cas de grilles dépassant $8\times 8$
+    \item Dans le cas ou le nombre de couleur est faible par rapport aux dimensions de la grille. Par exemple une grille $8\times 8$ avec $4$ couleurs.
+\end{itemize}
+
+La résolution est de complexité $\Theta(C(n+m))$ où $n$ est le nombre de cases, $m$ le nombre d'arrêtes (liaison entre deux cases adjacentes) et $C$ un facteur qui dépend du nombre de recherches effectué par l'algorithme.
+
+Le nombre de recherches effectué par l'algorithme est dans le pire des cas celui d'un algorithme de force brute.

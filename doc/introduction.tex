@@ -1,0 +1,14 @@
+\section*{Introduction}
+Flow est originellement un jeu de reflexion. Le principe consiste à remplir une grille dans sa totalité en reliant les points de même couleur.
+
+On comprend déjà que notre algorithme de résolution va chercher à trouver des parcours qui vont à la fois chercher à relier les couleurs correspondantes et couvrir le plus d'espace possible sans se géner entre eux.
+
+Nous allons donc poser dans un premier temps les problèmes à résoudre ainsi que le vocabulaire que nous allons employer pour caractériser le jeu. Nous verrons ensuite comment nous avons implémenté les types abstraits de données qui apparaissent dans les problèmes évoqués ci-dessus puis nous terminerons par présenter l'algorithme de résolution et l'ensemble des tests réalisés pour vérifier sa validité.
+
+\subsection*{Capacité du programme réalisé}
+
+Notre programme permet d'afficher, de jouer et de résoudre une grille carrée donnée en paramètre.
+La résolution ne gère pas les grilles comportant des ponts.
+Le programme résout des grilles de taille variable (mais carrées). Il n'y a pas de limite ormis que le programme prendra plus de temps pour des grilles de grande taille.
+
+Le résolution ne vérifie pas si toutes les cases sont coloriées. Par conséquent, le programme propose parfois en résolution, une grille ou tous les chemins rejoignent bien les cases de même couleur mais où certaines cases sont vides.

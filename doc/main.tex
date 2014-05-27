@@ -1,0 +1,95 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arsclassica Article
+% LaTeX Template
+% Version 1.0 (21/4/14)
+%
+% Original author:
+% Lorenzo Pantieri (http://www.lorenzopantieri.net) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+10pt, % Main document font size
+a4paper,
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+headinclude,footinclude, % Extra spacing for the header and footer
+BCOR5mm, % Binding correction
+]{scrreprt}
+
+\input{structure.tex} % Include the structure.tex
+
+\hyphenation{Fortran hy-phen-ation}
+
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR(S)
+%----------------------------------------------------------------------------------------
+\title{Flow}
+\title{\normalfont\spacedallcaps{Flow}}
+
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADERS
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{#1}}} % The header for all pages
+%\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % this modifies the header on odd pages
+\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}}
+
+\pagestyle{scrheadings}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+
+\date{Revision to consider : 73}
+
+\maketitle
+
+\setcounter{tocdepth}{2}
+
+\tableofcontents
+
+\listoffigures
+
+%\listoftables
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+\input{introduction.tex}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	ALGORITHMIQUE DU JEU
+%----------------------------------------------------------------------------------------
+\input{game_algorithmics.tex}
+
+%---------------------------------------------------------------------------
+%   REALISATION
+%---------------------------------------------------------------------------
+\input{game_realisation.tex}
+
+%--------------------------------------------------------------------------
+%   REAMRQUES ET AMELIORATION
+%--------------------------------------------------------------------------
+\input{remarques.tex}
+
+\end{document}
